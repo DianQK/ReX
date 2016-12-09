@@ -54,20 +54,17 @@ class TodoViewController: UIViewController {
         let item = tableView.rx.itemDeleted
             .map { [unowned self] in self.dataSource[$0] }
 
-        // 删除一个待办事项
-        item.filter { $0.isCompleted }.map { [$0.id] }
+        item.filter { $0.isCompleted }.map { $0.id }
             .flatMap(store.dispatch.delete)
-            .subscribe(onNext: { [unowned self] message in
-                HUD.showMessage(message, on: self.view)
+            .subscribe(onNext: { message in
+                print(message)
             })
             .addDisposableTo(disposeBag)
 
-        // 完成一个待办事项
-        item.filter { !$0.isCompleted }.map { [$0.id] }
+        item.filter { !$0.isCompleted }.map { $0.id }
             .subscribe(onNext: store.commit.completed)
             .addDisposableTo(disposeBag)
 
-        // 添加一个待办事项
         addTodoItemBarButtonItem.rx.tap
             .flatMap(showTextField)
             .subscribe(onNext: store.commit.add)

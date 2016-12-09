@@ -6,8 +6,8 @@
 //  Copyright © 2016 T. All rights reserved.
 //
 
+import ReX
 import RxSwift
-import RxSwiftX
 
 /// 待办事项 Store
 class TodoStore: Store {
@@ -38,23 +38,23 @@ extension Getter where Base: TodoStore {
 
     var completedList: Observable<[TodoItem]> {
         return base.todoList.asObservable()
-            .map { $0.filter { $0.isCompleted && !$0.isDeleted } }
+            .map { $0.filter { $0.isCompleted } }
     }
 
     var uncompletedList: Observable<[TodoItem]> {
         return base.todoList.asObservable()
-            .map { $0.filter { !$0.isCompleted && !$0.isDeleted } }
+            .map { $0.filter { !$0.isCompleted } }
     }
 
 }
 
 extension Mutation where Base: TodoStore {
 
-    var completed: ([Int64]) -> Void {
+    var completed: (Int64) -> Void {
         return { [unowned store = self.base] id in
             store.todoList.value = store.todoList.value.map { item in
                 var item = item
-                if id.contains(item.id) {
+                if id == item.id {
                     item.isCompleted = true
                 }
                 return item
@@ -70,15 +70,14 @@ extension Mutation where Base: TodoStore {
         }
     }
 
-    var delete: ([Int64]) throws -> Void {
+    var delete: (Int64) throws -> Void {
         return { [unowned store = self.base] id in
-            store.todoList.value = try store.todoList.value.map { item in
-                var item = item
-                if id.contains(item.id) {
+            store.todoList.value = try store.todoList.value.flatMap { item in
+                if id == item.id {
                     if !item.isCompleted {
                         throw TodoStore.Error.uncompletedWhenDelete
                     }
-                    item.isDeleted = true
+                    return nil
                 }
                 return item
             }
@@ -88,19 +87,17 @@ extension Mutation where Base: TodoStore {
 }
 
 extension Action where Base: TodoStore {
-    var delete: ([Int64]) -> Observable<String> {
+    var delete: (Int64) -> Observable<String> {
         return { [unowned store = self.base as TodoStore] id -> Observable<String> in
             store.getters.completedList
-                .flatMap { completedList -> Observable<String> in // TODO: 其实这里的逻辑时有问题的 ==
-                    let items = completedList.filter { id.contains($0.id) }
-                    if items.isEmpty {
+                .flatMap { completedList -> Observable<String> in
+                    guard let item = completedList.filter({ id == $0.id }).first else {
                         return Observable.just("并没有这个代办事项") // TODO: TBD throws ?
-                    } else {
-                        return showEnsure("确定删除\(items.map { $0.name }.joined(separator: "、"))吗？")
-                            .map { items.map { $0.id } }
+                    }
+                    return showEnsure("确定删除\(item.name)吗？")
+                            .map { id }
                             .do(onNext: store.commit.delete)
                             .map { _ in "删除成功" }
-                    }
             }
         }
     }

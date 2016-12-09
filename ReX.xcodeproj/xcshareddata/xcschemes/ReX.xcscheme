@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "263A1AE81DF949290084425D"
-               BuildableName = "RxSwiftX.framework"
-               BlueprintName = "RxSwiftX"
-               ReferencedContainer = "container:RxSwiftX.xcodeproj">
+               BuildableName = "ReX.framework"
+               BlueprintName = "ReX"
+               ReferencedContainer = "container:ReX.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "263A1AF11DF949290084425D"
-               BuildableName = "RxSwiftXTests.xctest"
-               BlueprintName = "RxSwiftXTests"
-               ReferencedContainer = "container:RxSwiftX.xcodeproj">
+               BuildableName = "ReXTests.xctest"
+               BlueprintName = "ReXTests"
+               ReferencedContainer = "container:ReX.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "263A1AE81DF949290084425D"
-            BuildableName = "RxSwiftX.framework"
-            BlueprintName = "RxSwiftX"
-            ReferencedContainer = "container:RxSwiftX.xcodeproj">
+            BuildableName = "ReX.framework"
+            BlueprintName = "ReX"
+            ReferencedContainer = "container:ReX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "263A1AE81DF949290084425D"
-            BuildableName = "RxSwiftX.framework"
-            BlueprintName = "RxSwiftX"
-            ReferencedContainer = "container:RxSwiftX.xcodeproj">
+            BuildableName = "ReX.framework"
+            BlueprintName = "ReX"
+            ReferencedContainer = "container:ReX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "263A1AE81DF949290084425D"
-            BuildableName = "RxSwiftX.framework"
-            BlueprintName = "RxSwiftX"
-            ReferencedContainer = "container:RxSwiftX.xcodeproj">
+            BuildableName = "ReX.framework"
+            BlueprintName = "ReX"
+            ReferencedContainer = "container:ReX.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

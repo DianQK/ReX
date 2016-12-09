@@ -6,7 +6,7 @@
 //  Copyright © 2016 T. All rights reserved.
 //
 
-import RxSwiftX
+import ReX
 import RxSwift
 
 class CountStore: Store {

@@ -15,13 +15,11 @@ struct TodoItem {
     let id: Int64
     var name: String
     var isCompleted: Bool
-    var isDeleted: Bool
 
     init(id: Int64, name: String) {
         self.id = id
         self.name = name
         self.isCompleted = false
-        self.isDeleted = false
     }
 
 }
