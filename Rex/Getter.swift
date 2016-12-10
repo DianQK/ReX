@@ -18,7 +18,7 @@ public struct Getter<Base>: Proxy {
 
 extension Store {
 
-    public var getters: Getter<Self> {
+    public var getter: Getter<Self> {
         return Getter(self)
     }
 
