@@ -67,7 +67,7 @@ extension PluginProxy where Base: Store {
 
     public func use<P: PluginProtocol>(_ plugin: P) where P.S == Base {
         plugin.state?(base.state)
-        plugin.getter?(base.getters)
+        plugin.getter?(base.getter)
         plugin.mutation?(base.commit)
         plugin.action?(base.dispatch)
     }
