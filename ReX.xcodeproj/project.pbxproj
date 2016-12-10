@@ -12,6 +12,7 @@
 		263A1B251DF952860084425D /* ReX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263A1AE91DF949290084425D /* ReX.framework */; };
 		263A1B261DF952860084425D /* ReX.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 263A1AE91DF949290084425D /* ReX.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		263A1B311DF958A00084425D /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263A1B301DF958A00084425D /* RxDataSources.framework */; };
+		2661F1161DFB9F07009E08D9 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2661F1151DFB9F07009E08D9 /* Plugin.swift */; };
 		56A4EB131DFAE9F6004A9390 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB001DFAE9F6004A9390 /* Store.swift */; };
 		56A4EB211DFAEA4E004A9390 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB201DFAEA4E004A9390 /* State.swift */; };
 		56A4EB231DFAEA61004A9390 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB221DFAEA61004A9390 /* Getter.swift */; };
@@ -61,6 +62,7 @@
 		263A1B101DF952650084425D /* ReXDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReXDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		263A1B301DF958A00084425D /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		263A1B3C1DF969B20084425D /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Carthage/Build/iOS/MBProgressHUD.framework; sourceTree = "<group>"; };
+		2661F1151DFB9F07009E08D9 /* Plugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugin.swift; sourceTree = "<group>"; };
 		56A4EAFE1DFAE9F6004A9390 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56A4EB001DFAE9F6004A9390 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		56A4EB041DFAE9F6004A9390 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				56A4EB221DFAEA61004A9390 /* Getter.swift */,
 				56A4EB241DFAEA6E004A9390 /* Mutation.swift */,
 				56A4EB261DFAEA7D004A9390 /* Action.swift */,
+				2661F1151DFB9F07009E08D9 /* Plugin.swift */,
 			);
 			path = Rex;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			files = (
 				56A4EB291DFAEA8F004A9390 /* Proxy.swift in Sources */,
 				56A4EB271DFAEA7D004A9390 /* Action.swift in Sources */,
+				2661F1161DFB9F07009E08D9 /* Plugin.swift in Sources */,
 				56A4EB231DFAEA61004A9390 /* Getter.swift in Sources */,
 				56A4EB251DFAEA6E004A9390 /* Mutation.swift in Sources */,
 				56A4EB211DFAEA4E004A9390 /* State.swift in Sources */,

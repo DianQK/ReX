@@ -17,6 +17,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         let countStore = CountStore()
+
+        countStore.plugin
+            .use(state: { state in
+                _ = state.count.asObservable()
+                    .subscribe(onNext: { count in
+                        print("Plugin: \(count)")
+                    })
+            }, getter: { getter in
+
+            }, mutation: { mutation in
+
+            }, action: { action in
+
+            })
+
         print(countStore.state.count.value)
         countStore.commit.increment()
         print(countStore.state.count.value)
