@@ -108,7 +108,7 @@
 		263A1ADF1DF949290084425D = {
 			isa = PBXGroup;
 			children = (
-				56A4EAFC1DFAE9F6004A9390 /* Rex */,
+				56A4EAFC1DFAE9F6004A9390 /* ReX */,
 				56A4EB021DFAE9F6004A9390 /* ReXDemo */,
 				263A1AEA1DF949290084425D /* Products */,
 				263A1B031DF94BEC0084425D /* Frameworks */,
@@ -135,7 +135,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		56A4EAFC1DFAE9F6004A9390 /* Rex */ = {
+		56A4EAFC1DFAE9F6004A9390 /* ReX */ = {
 			isa = PBXGroup;
 			children = (
 				56A4EAFE1DFAE9F6004A9390 /* Info.plist */,
@@ -147,6 +147,7 @@
 				56A4EB261DFAEA7D004A9390 /* Action.swift */,
 				2661F1151DFB9F07009E08D9 /* Plugin.swift */,
 			);
+			name = ReX;
 			path = Rex;
 			sourceTree = "<group>";
 		};

@@ -32,6 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             })
 
+        _ = countStore.state.count.asObservable()
+            .subscribe(onNext: { count in
+                print(count)
+            }
+
         print(countStore.state.count.value)
         countStore.commit.increment()
         print(countStore.state.count.value)
@@ -40,3 +45,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
+
+let store = CountStore()
+
+store.plugin
+    .use(state: { state in
+        _ = state.count.asObservable()
+            .subscribe(onNext: { count in
+                print("Plugin: \(count)")
+            })
+    }, getter: { getter in
+
+    }, mutation: { mutation in
+
+    }, action: { action in
+
+    })
+
+_ = store.state.count.asObservable()
+    .subscribe(onNext: { count in
+        print(count)
+    }
+
+print(store.state.count.value)
+store.commit.increment()
+print(store.state.count.value)
