@@ -89,7 +89,7 @@ extension Mutation where Base: TodoStore {
 extension Action where Base: TodoStore {
     var delete: (Int64) -> Observable<String> {
         return { [unowned store = self.base as TodoStore] id -> Observable<String> in
-            store.getters.completedList
+            store.getter.completedList
                 .flatMap { completedList -> Observable<String> in
                     guard let item = completedList.filter({ id == $0.id }).first else {
                         return Observable.just("并没有这个代办事项") // TODO: TBD throws ?
