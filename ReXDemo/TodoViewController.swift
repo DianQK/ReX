@@ -39,10 +39,10 @@ class TodoViewController: UIViewController {
             return dataSource.sectionModels[section].model
         }
 
-        let uncompletedSection = store.getters.uncompletedList
+        let uncompletedSection = store.getter.uncompletedList
             .map { TodoSectionModel(model: "未完成", items: $0) }
 
-        let completedSection = store.getters.completedList
+        let completedSection = store.getter.completedList
             .map { TodoSectionModel(model: "已完成", items: $0) }
 
         Observable.combineLatest([uncompletedSection, completedSection]) { $0 }
