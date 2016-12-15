@@ -9,24 +9,24 @@
 import ReX
 import RxSwift
 
-class CountStore: Store {
+class CountStore: StoreType {
 
     fileprivate let count = Variable<Int>(0)
 
 }
 
-extension State where Base: CountStore {
+extension State where Store: CountStore {
 
     var count: GetVariable<Int> {
-        return base.count.asGetVariable()
+        return store.count.asGetVariable()
     }
 
 }
 
-extension Mutation where Base: CountStore {
+extension Mutation where Store: CountStore {
 
     func increment() {
-        base.count.value += 1
+        store.count.value += 1
     }
 
 }
