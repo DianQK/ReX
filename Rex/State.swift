@@ -6,17 +6,17 @@
 //  Copyright © 2016 T. All rights reserved.
 //
 
-public struct State<Base>: Proxy {
+public struct State<Store: StoreType>: StoreProxyType {
 
-    public let base: Base
+    public let store: Store
     
-    public init(_ base: Base) {
-        self.base = base
+    public init(_ store: Store) {
+        self.store = store
     }
     
 }
 
-extension Store {
+extension StoreType {
 
     public var state: State<Self> {
         return State(self)

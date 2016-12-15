@@ -6,6 +6,6 @@
 //  Copyright © 2016 T. All rights reserved.
 //
 
-public protocol Store {
+public protocol StoreType {
 
 }

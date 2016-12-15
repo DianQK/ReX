@@ -6,44 +6,44 @@
 //  Copyright © 2016年 T. All rights reserved.
 //
 
-public struct PluginProxy<Base>: Proxy {
+public struct Plugin<Store: StoreType>: StoreProxyType {
 
-    public let base: Base
+    public let store: Store
 
-    public init(_ base: Base) {
-        self.base = base
+    public init(_ store: Store) {
+        self.store = store
     }
 
 }
 
-public typealias StateHandler<S: Store> = ((State<S>) -> Void)
-public typealias GetterHandler<S: Store> = ((Getter<S>) -> Void)
-public typealias MutationHandler<S: Store> = ((Mutation<S>) -> Void)
-public typealias ActionHandler<S: Store> = ((Action<S>) -> Void)
+public typealias StateHandler<Store: StoreType> = ((State<Store>) -> Void)
+public typealias GetterHandler<Store: StoreType> = ((Getter<Store>) -> Void)
+public typealias MutationHandler<Store: StoreType> = ((Mutation<Store>) -> Void)
+public typealias ActionHandler<Store: StoreType> = ((Action<Store>) -> Void)
 
-public protocol PluginProtocol {
+public protocol PluginType {
 
-    associatedtype S: Store
+    associatedtype Store: StoreType
 
-    var state: StateHandler<S>? { get }
-    var getter: GetterHandler<S>? { get }
-    var mutation: MutationHandler<S>? { get }
-    var action: ActionHandler<S>? { get }
+    var state: StateHandler<Store>? { get }
+    var getter: GetterHandler<Store>? { get }
+    var mutation: MutationHandler<Store>? { get }
+    var action: ActionHandler<Store>? { get }
 
 }
 
-public struct BasePlugin<S: Store>: PluginProtocol {
+public struct BasePlugin<Store: StoreType>: PluginType {
 
-    public let state: StateHandler<S>?
-    public let getter: GetterHandler<S>?
-    public let mutation: MutationHandler<S>?
-    public let action: ActionHandler<S>?
+    public let state: StateHandler<Store>?
+    public let getter: GetterHandler<Store>?
+    public let mutation: MutationHandler<Store>?
+    public let action: ActionHandler<Store>?
 
     public init(
-        state: StateHandler<S>? = nil,
-        getter: GetterHandler<S>? = nil,
-        mutation: MutationHandler<S>? = nil,
-        action: ActionHandler<S>? = nil
+        state: StateHandler<Store>? = nil,
+        getter: GetterHandler<Store>? = nil,
+        mutation: MutationHandler<Store>? = nil,
+        action: ActionHandler<Store>? = nil
         ) {
         self.state = state
         self.getter = getter
@@ -53,33 +53,31 @@ public struct BasePlugin<S: Store>: PluginProtocol {
 
 }
 
-extension Store {
+extension StoreType {
 
-    public var plugin: PluginProxy<Self> {
-        return PluginProxy(self)
+    public var plugin: Plugin<Self> {
+        return Plugin(self)
     }
     
 }
 
-extension PluginProxy where Base: Store {
+extension Plugin {
 
-    public typealias S = Base
-
-    public func use<P: PluginProtocol>(_ plugin: P) where P.S == Base {
-        plugin.state?(base.state)
-        plugin.getter?(base.getter)
-        plugin.mutation?(base.commit)
-        plugin.action?(base.dispatch)
+    public func use<P: PluginType>(_ plugin: P) where P.Store == Store {
+        plugin.state?(store.state)
+        plugin.getter?(store.getter)
+        plugin.mutation?(store.commit)
+        plugin.action?(store.dispatch)
     }
 
     @discardableResult
     public func use(
-        state: StateHandler<S>? = nil,
-        getter: GetterHandler<S>? = nil,
-        mutation: MutationHandler<S>? = nil,
-        action: ActionHandler<S>? = nil
-        ) -> BasePlugin<S> {
-        let plugin = BasePlugin<S>(state: state, getter: getter, mutation: mutation, action: action)
+        state: StateHandler<Store>? = nil,
+        getter: GetterHandler<Store>? = nil,
+        mutation: MutationHandler<Store>? = nil,
+        action: ActionHandler<Store>? = nil
+        ) -> BasePlugin<Store> {
+        let plugin = BasePlugin<Store>(state: state, getter: getter, mutation: mutation, action: action)
         use(plugin)
         return plugin
     }

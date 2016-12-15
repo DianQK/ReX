@@ -6,12 +6,12 @@
 //  Copyright © 2016 T. All rights reserved.
 //
 
-public protocol Proxy {
+public protocol StoreProxyType {
     
-    associatedtype Base
+    associatedtype Store: StoreType
     
-    var base: Base { get }
+    var store: Store { get }
     
-    init(_ base: Base)
+    init(_ store: Store)
 
 }
