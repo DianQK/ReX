@@ -11,14 +11,18 @@ import RxSwift
 
 class CountStore: StoreType {
 
-    fileprivate let count = Variable<Int>(0)
+    class State {
+        let count = Variable<Int>(0)
+    }
+
+    let state = State()
 
 }
 
-extension State where Store: CountStore {
+extension Getter where Store: CountStore {
 
     var count: GetVariable<Int> {
-        return store.count.asGetVariable()
+        return store.state.count.asGetVariable()
     }
 
 }
@@ -26,7 +30,7 @@ extension State where Store: CountStore {
 extension Mutation where Store: CountStore {
 
     func increment() {
-        store.count.value += 1
+        store.state.count.value += 1
     }
 
 }

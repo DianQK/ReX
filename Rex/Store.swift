@@ -6,6 +6,10 @@
 //  Copyright © 2016 T. All rights reserved.
 //
 
-public protocol StoreType {
+public protocol StoreType: class {
+
+    associatedtype State
+
+    var state: State { get }
 
 }

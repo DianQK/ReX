@@ -16,7 +16,7 @@ public struct Plugin<Store: StoreType>: StoreProxyType {
 
 }
 
-public typealias StateHandler<Store: StoreType> = ((State<Store>) -> Void)
+public typealias StateHandler<Store: StoreType> = ((Store.State) -> Void)
 public typealias GetterHandler<Store: StoreType> = ((Getter<Store>) -> Void)
 public typealias MutationHandler<Store: StoreType> = ((Mutation<Store>) -> Void)
 public typealias ActionHandler<Store: StoreType> = ((Action<Store>) -> Void)

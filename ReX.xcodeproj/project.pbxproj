@@ -15,7 +15,6 @@
 		2661F1161DFB9F07009E08D9 /* Plugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2661F1151DFB9F07009E08D9 /* Plugin.swift */; };
 		2694AD851E02D9D10033D0EF /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694AD841E02D9D10033D0EF /* Module.swift */; };
 		56A4EB131DFAE9F6004A9390 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB001DFAE9F6004A9390 /* Store.swift */; };
-		56A4EB211DFAEA4E004A9390 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB201DFAEA4E004A9390 /* State.swift */; };
 		56A4EB231DFAEA61004A9390 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB221DFAEA61004A9390 /* Getter.swift */; };
 		56A4EB251DFAEA6E004A9390 /* Mutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB241DFAEA6E004A9390 /* Mutation.swift */; };
 		56A4EB271DFAEA7D004A9390 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A4EB261DFAEA7D004A9390 /* Action.swift */; };
@@ -76,7 +75,6 @@
 		56A4EB0D1DFAE9F6004A9390 /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		56A4EB0E1DFAE9F6004A9390 /* TodoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoStore.swift; sourceTree = "<group>"; };
 		56A4EB0F1DFAE9F6004A9390 /* TodoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
-		56A4EB201DFAEA4E004A9390 /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		56A4EB221DFAEA61004A9390 /* Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
 		56A4EB241DFAEA6E004A9390 /* Mutation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mutation.swift; sourceTree = "<group>"; };
 		56A4EB261DFAEA7D004A9390 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				56A4EAFE1DFAE9F6004A9390 /* Info.plist */,
 				56A4EB001DFAE9F6004A9390 /* Store.swift */,
 				56A4EB281DFAEA8F004A9390 /* Proxy.swift */,
-				56A4EB201DFAEA4E004A9390 /* State.swift */,
 				56A4EB221DFAEA61004A9390 /* Getter.swift */,
 				56A4EB241DFAEA6E004A9390 /* Mutation.swift */,
 				56A4EB261DFAEA7D004A9390 /* Action.swift */,
@@ -238,7 +235,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = T;
 				TargetAttributes = {
 					263A1AE81DF949290084425D = {
@@ -323,7 +320,6 @@
 				56A4EB231DFAEA61004A9390 /* Getter.swift in Sources */,
 				56A4EB251DFAEA6E004A9390 /* Mutation.swift in Sources */,
 				2694AD851E02D9D10033D0EF /* Module.swift in Sources */,
-				56A4EB211DFAEA4E004A9390 /* State.swift in Sources */,
 				56A4EB131DFAE9F6004A9390 /* Store.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,6 +386,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -443,6 +440,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

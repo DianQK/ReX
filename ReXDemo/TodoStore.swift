@@ -12,19 +12,23 @@ import RxSwift
 /// 待办事项 Store
 class TodoStore: StoreType {
 
-    fileprivate let todoList = Variable<[TodoItem]>([])
+    class State {
+        let todoList = Variable<[TodoItem]>([])
+    }
+
+    let state = State()
 
 }
 
 extension Getter where Store: TodoStore {
 
     var completedList: Observable<[TodoItem]> {
-        return store.todoList.asObservable()
+        return store.state.todoList.asObservable()
             .map { $0.filter { $0.isCompleted } }
     }
 
     var uncompletedList: Observable<[TodoItem]> {
-        return store.todoList.asObservable()
+        return store.state.todoList.asObservable()
             .map { $0.filter { !$0.isCompleted } }
     }
 
@@ -34,7 +38,7 @@ extension Mutation where Store: TodoStore {
 
     var completed: (Int64) -> Void {
         return { [unowned store = self.store] id in
-            store.todoList.value = store.todoList.value.map { item in
+            store.state.todoList.value = store.state.todoList.value.map { item in
                 var item = item
                 if id == item.id {
                     item.isCompleted = true
@@ -46,15 +50,15 @@ extension Mutation where Store: TodoStore {
 
     var add: (_ name: String) -> Void {
         return { [unowned store = self.store] name in
-            let id = (store.todoList.value.max()?.id ?? 0) + 1
+            let id = (store.state.todoList.value.max()?.id ?? 0) + 1
             let todoItem = TodoItem(id: id, name: name)
-            store.todoList.value.append(todoItem)
+            store.state.todoList.value.append(todoItem)
         }
     }
 
     var delete: (Int64) -> Void {
         return { [unowned store = self.store] id in
-            store.todoList.value = store.todoList.value.filter { $0.id != id }
+            store.state.todoList.value = store.state.todoList.value.filter { $0.id != id }
         }
     }
 
