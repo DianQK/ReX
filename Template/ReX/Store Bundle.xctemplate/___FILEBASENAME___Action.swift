@@ -8,6 +8,6 @@
 
 import ReX
 
-extension ReX.Action where Base: ___FILEBASENAMEASIDENTIFIER___Store {
+extension ReX.Action where Store: ___FILEBASENAMEASIDENTIFIER___Store {
 
 }
